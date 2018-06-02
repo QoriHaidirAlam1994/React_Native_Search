@@ -1,35 +1,28 @@
 import React, { Component } from 'react'
 import { Button, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation'
-import {
-  Container,
-  Text,
-  Form,
-  Item,
-  Input
-} from 'native-base'
+import { Container } from 'native-base'
 import { connect } from 'react-redux'
+
+import Form from '../components/form';
 
 class TodoCreate extends Component {
 
-  handleCreate(){
-    alert('create Contact')
+  constructor() {
+    super();
+  }
+
+  handleCreate(value){
+    alert(JSON.stringify(value));
   }
 
   render() {
     return (
       <Container style={styles.container} >
-        <Form>
-          <Item>
-            <Input placeholder="Name" />
-          </Item>
-          <Item>
-            <Input placeholder="Address" />
-          </Item>
-          <Button
-            onPress={()=> this.handleCreate()}
-            title="Create" />
-        </Form>
+        <Form
+          {...this.props}
+          onSubmit={this.handleCreate.bind(this)}
+        />
       </Container>
     )
   }
