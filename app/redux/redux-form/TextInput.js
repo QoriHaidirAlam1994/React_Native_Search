@@ -17,7 +17,6 @@ export default class TextInput extends Component {
         {touched && error
         ? <Text style={{color: 'red', marginLeft: 20}}>{error}</Text>
         : null}
-
       </View>
     )
   }

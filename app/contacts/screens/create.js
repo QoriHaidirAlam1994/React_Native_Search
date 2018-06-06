@@ -5,6 +5,7 @@ import { Container } from 'native-base'
 import { connect } from 'react-redux'
 
 import Form from '../components/form';
+import { createContacts } from '../actions'
 
 class TodoCreate extends Component {
 
@@ -13,7 +14,13 @@ class TodoCreate extends Component {
   }
 
   handleCreate(value){
-    alert(JSON.stringify(value));
+    this.props.dispatch(createContacts(value))
+    .then(res => {
+      this.props.navigation.goBack();
+    })
+    .catch(err => {
+      alert('Error');
+    })
   }
 
   render() {
@@ -28,7 +35,13 @@ class TodoCreate extends Component {
   }
 }
 
-export default connect()(TodoCreate);
+const mapStateToProps = (state) => {
+  return {
+    contacts: state.contactsReducer
+  }
+}
+
+export default connect(mapStateToProps)(TodoCreate);
 
 const styles = StyleSheet.create({
   container: {

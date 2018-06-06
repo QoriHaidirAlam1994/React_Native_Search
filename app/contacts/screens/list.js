@@ -2,18 +2,26 @@ import React, { Component } from 'react'
 import {
   Container, Text, Content, List,
   ListItem, Fab, Body, Right,
-  Form, Item, Input, Icon
+  Form, Input, Icon
 } from 'native-base';
-import { Button, View, StyleSheet } from 'react-native'
+import { Button, View, StyleSheet, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
+import axios from 'axios';
 
-import { allContacts } from '../actions'
+import { allContacts } from '../actions';
+import Item from '../components/item';
 
 class ContactsList extends Component {
 
+  state = {selected: (new Map(): Map<string, boolean>)};
+
   componentDidMount() {
-    this.props.dispatch(allContacts())
+    this.getData();
+  }
+
+  getData = () => {
+    this.props.dispatch(allContacts());
   }
 
   handleCreate(){
@@ -23,25 +31,25 @@ class ContactsList extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Content>
-          <List>
-            {this.props.contacts.results.map((item, index) => (
-              <ListItem key={index} >
-                <Body>
-                  <Text>{item.name}</Text>
-                  <Text note>{item.address}</Text>
-                </Body>
-              </ListItem>
-            ))}
-          </List>
-        </Content>
-
+        <FlatList
+          extraData={this.state}
+          keyExtractor={this._keyExtractor}
+          data={this.props.contacts.results}
+          renderItem={this._renderItem}
+          refreshing={this.props.contacts.isLoading}
+          onRefresh={this.getData}
+        />
         <Fab onPress={()=> this.handleCreate()} >
           <Icon name="add" />
         </Fab>
       </Container>
     )
   }
+
+  _renderItem = ({item}) => <Item item={item} />
+
+  _keyExtractor = (item, index) => item.id.toString();
+
 }
 
 const mapStateToProps = (state) => {

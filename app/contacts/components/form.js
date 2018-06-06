@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-native';
+import { Button, ActivityIndicator } from 'react-native';
 import { Form as FormNB } from 'native-base';
 import { Field, reduxForm } from 'redux-form';
 
@@ -23,9 +23,11 @@ class Form extends Component {
           placeholder="Address"
           validate={[ required ]}
         />
-        <Button
+        {this.props.contacts.isLoading
+        ? <ActivityIndicator />
+        : <Button
           onPress={this.props.handleSubmit}
-          title="Create" />
+          title="Create" />}
       </FormNB>
     )
   }
