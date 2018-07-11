@@ -1,33 +1,42 @@
 import { StackNavigator } from 'react-navigation';
 
-import { ContactsList, ContactsCreate, ContactsDetail } from '../contacts/screens'
-import { ProductsList, ProductsCreate, productsDetail } from '../products/screens'
+import
+HomeList
+  from "../home/screens/list";
+import GaleryList from "../galery/list";
+// import { ContactsList, ContactsCreate, ContactsDetail } from '../contacts/screens'
 
 const RootNavigator = StackNavigator({
-  ContactsList: {
-    screen: ContactsList,
+  HomeList: {
+    screen: HomeList,
     navigationOptions: {
-      title: 'Contacts List'
+      header: null
     }
   },
-  ContactsCreate: {
-    screen: ContactsCreate,
+  GaleryList: {
+    screen: GaleryList,
     navigationOptions: {
-      title: 'Create Contact'
+      header: null
     }
-  },
-  ContactsDetail: {
-    screen: ContactsDetail,
-    navigationOptions: {
-      title: 'Detail Contact'
-    }
-  },
-  ProductsList: {
-    screen: ProductsList,
-    navigationOptions: {
-      title: 'Products List'
-    }
-  },
-})
+  }
+  // ContactsList: {
+  //   screen: ContactsList,
+  //   navigationOptions: {
+  //     title: "Contacts List"
+  //   }
+  // }
+  // ContactsCreate: {
+  //   screen: ContactsCreate,
+  //   navigationOptions: {
+  //     title: "Create Contact"
+  //   }
+  // },
+  // ContactsDetail: {
+  //   screen: ContactsDetail,
+  //   navigationOptions: {
+  //     title: "Detail Contact"
+  //   }
+  // }
+});
 
 export default RootNavigator

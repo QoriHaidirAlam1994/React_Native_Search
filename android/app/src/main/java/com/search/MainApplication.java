@@ -1,4 +1,4 @@
-package com.rndwboilerplate;
+package com.search;
 
 import android.app.Application;
 

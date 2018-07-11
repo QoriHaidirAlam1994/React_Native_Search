@@ -1,7 +1,7 @@
 import RootNavigator from '../navigators/RootNavigator'
 
 const initialState = RootNavigator.router.getStateForAction(
-  RootNavigator.router.getActionForPathAndParams('ContactsList')
+  RootNavigator.router.getActionForPathAndParams('HomeList')
 )
 
 const navReducer = (state = initialState, action) => {
