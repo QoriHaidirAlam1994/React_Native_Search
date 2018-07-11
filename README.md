@@ -27,7 +27,3 @@ $ react-native run-android
 or
 $ react-native run-ios
 ```
-## Screenshot
-.                          |  .                        |  .                        |  .  
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![screenshots1](https://ibb.co/h8VF1o/search two)  |  ![screenshots2](https://ibb.co/nvng7T)  |  ![screenshots3](https://ibb.co/eMTcgo)  |
