@@ -1,4 +1,4 @@
-# React Native DumbWays Boilerplate
+# React Native Filtering Search (TEST)
 
 This is a complete React Native Boilerplate including React Navigator, Redux, and Nativebase. This Boilerplate helps u quickly jump to code as soon as possible without being confuse about structures, and setup. We make it as modular as possible to avoid headache on a big app with a big team.
 
